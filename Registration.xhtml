@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registration Form</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Registration Form</h2>
+            <h:panelGrid columns="6" style="color:red">
+                <h:outputLabel value="First Name:"/>
+                <h:inputText id="fName" style="width: 70px" value="#{registration.firstName}"/>
+                <h:outputLabel value="MI"/>
+                <h:inputText id="mi" size="1" value="#{registration.mi}"/>
+                <h:outputLabel value="Last Name:"/>
+                <h:inputText id="lName" style="width: 70px" value="#{registration.lastName}"/> 
+            </h:panelGrid>
+            <h:panelGrid columns="2" style="color:blue">
+               <h:outputLabel value="Gender: "/> 
+               <h:selectOneRadio id="gender" value="#{registration.gender}">
+                   <f:selectItem itemLabel="Male" itemValue="M"/>
+                   <f:selectItem itemLabel="Female" itemValue="F"/>
+               </h:selectOneRadio>
+            </h:panelGrid>
+            <h:panelGrid columns="4" style="color:brown">
+                <h:outputLabel value="Major: "/>
+                <h:selectOneMenu id="major" value="#{registration.major}">
+                    <f:selectItem itemValue="Mathematics"/>
+                    <f:selectItem itemValue="Physics"/>
+                    <f:selectItem itemValue="Chemistry"/>
+                    <f:selectItem itemValue="History"/>
+                    <f:selectItem itemValue="geography"/>
+                </h:selectOneMenu>
+                <h:outputLabel>Minor: </h:outputLabel>
+                <h:selectManyListbox id="minors" value="#{registration.minors}">
+                    <f:selectItem itemValue="Sanskrit"/>
+                    <f:selectItem itemValue="Hindi"/>
+                    <f:selectItem itemValue="Telegu"/>
+                    <f:selectItem itemValue="Tamil"/>
+                    <f:selectItem itemValue="Malayalam"/>
+                </h:selectManyListbox>
+            </h:panelGrid>
+                <h:panelGrid columns="4" style="color:blue">
+                  <h:outputLabel>Hobbies: </h:outputLabel> 
+                  <h:selectManyCheckbox id="hobbies" value="#{registration.hobbies}">
+                      <f:selectItem itemValue="Tennis"/>
+                      <f:selectItem itemValue="Table Tennis"/>
+                      <f:selectItem itemValue="Cricket"/>                      
+                  </h:selectManyCheckbox>
+                </h:panelGrid>
+            <h:panelGrid columns="1" style="color:green">
+                <h:outputLabel value="Remarks"/>
+                <h:inputTextarea id="remarks" style="width:400px; height:50px" value="#{registration.remarks}"/>
+            </h:panelGrid>
+            <h:commandButton value="Register"/>
+            <h:outputText escape="false" style="color:red" value="#{registration.response}"/>
+        </h:form>
+    </h:body>
+</html>
+
